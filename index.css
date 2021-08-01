@@ -19,3 +19,9 @@ body {
 canvas {
     width: 90vw;
 }
+
+@media (min-width: 1280px) {
+    canvas {
+        width: 65vw !important;
+    }
+}
