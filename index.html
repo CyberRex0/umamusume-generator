@@ -8,16 +8,17 @@
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
-        <h1>ウマ娘ジェネレーター</h1>
-        <p>あなただけのウマ娘を作ろう！</p>
-        <br>
-        <canvas id="surface" width="1080" height="635"></canvas>
-        <br>
-        <div class="mb-4">
-            アイコン: <input type="file" id="icon" accept="image/png,image/jpeg,image/jpg,image/bmp,image/webp"><br>
-            名前：<input type="text" id="name" placeholder="ここに名前を入力" value="ここに名前を入力"><br>
-            キャッチコピー: <input type="text" id="catchcopy" placeholder="ここにキャッチコピーを入力" value="ここにキャッチコピーを入力"><br>
-            称号: <input type="text" id="tag" placeholder="ここに称号を入力" value="ここに称号を入力"><br>
+        <div class="container">
+            <h1>ウマ娘ジェネレーター</h1>
+            <p>あなただけのウマ娘を作ろう！</p>
+            <br>
+            <canvas id="surface" width="1080" height="635"></canvas>
+            <br>
+            アイコン: <input class="form-input" type="file" id="icon" accept="image/png,image/jpeg,image/jpg,image/bmp,image/webp"><br>
+            名前：<input class="form-input" type="text" id="name" placeholder="ここに名前を入力" value="ここに名前を入力"><br>
+            キャッチコピー: <input class="form-input" type="text" id="catchcopy" placeholder="ここにキャッチコピーを入力" value="ここにキャッチコピーを入力"><br>
+            称号: <input class="form-input" type="text" id="tag" placeholder="ここに称号を入力" value="ここに称号を入力"><br>
+            <div id="selectbox">
             バ場適性：
             芝<select class="tekiseiinput" id="tekisei_siba">
                 <option value="S">S</option>
@@ -123,6 +124,7 @@
                 <option value="F">F</option>
                 <option value="G">G</option>
               </select>
+            </div>
             <br>
             パラメータ:
             スピード<input style="ime-mode: disabled" class="paraminput numinput" type="number" id="param_speed" min="0" max="1200" value="100">
@@ -132,7 +134,16 @@
             賢さ<input style="ime-mode: disabled" class="paraminput numinput" type="number" id="param_kasikosa" min="0" max="1200" value="100">
             <br>
             <br>
-            <button onclick="download()">画像を保存</button>
+            <button class="btn btn-primary" onclick="download()">画像を保存</button>
+
+            <br>
+
+            <p>
+                Umamusume Generator v1.0<br>
+                (C)2021 CyberRex<br>
+                MIT License
+            </p>
+
         </div>
 
         <a style="display:none" href="" id="dwnld"></a>

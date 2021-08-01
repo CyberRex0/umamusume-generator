@@ -11,3 +11,11 @@ body {
 .numinput {
     max-width: 64px;
 }
+
+#selectbox {
+    line-height: 2.5;
+}
+
+canvas {
+    width: 90vw;
+}
