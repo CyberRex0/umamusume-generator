@@ -1,0 +1,13 @@
+
+@font-face {
+    font-family: 'Umago';
+    src: url('assets/fonts/umakogoM4web.woff2');
+}
+
+body {
+    font-family: 'Umago';
+}
+
+.numinput {
+    max-width: 64px;
+}
