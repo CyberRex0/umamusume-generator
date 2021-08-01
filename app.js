@@ -44,7 +44,7 @@ var imageAssets = {
     tekisei_E: canvasImage('assets/image/grades/uma_tekisei_E.png'),
     tekisei_F_PLUS: canvasImage('assets/image/grades/uma_tekisei_F_PLUS.png'),
     tekisei_F: canvasImage('assets/image/grades/uma_tekisei_F.png'),
-    tekisei_G_PLUS: canvasImage('assets/image/grades/uma_tekisei_G.png'),
+    tekisei_G_PLUS: canvasImage('assets/image/grades/uma_tekisei_G_PLUS.png'),
     tekisei_G: canvasImage('assets/image/grades/uma_tekisei_G.png')
 }
 
@@ -254,8 +254,10 @@ function getGradeFromValue(stat) {
         return 'A';
     }else if ( stat >= 900 && stat <= 999) {
         return 'A_PLUS';
-    }else if ( stat >= 1000 && stat <= 1099) {
+    }else if ( stat >= 1000 && stat <= 1049) {
         return 'S';
+    }else if ( stat >= 1050 && stat <= 1099) {
+        return 'S_PLUS';
     }else if ( stat >= 1100) {
         return 'SS';
     }
