@@ -85,6 +85,14 @@ $(function () {
         dom.onchange = function () {
             var id = this.id.replace('param_', '');
             config.params[id] = Number(this.value);
+            if (config.params[id] < 0) {
+                config.params[id] = 0;
+                this.value = '0';
+            }
+            if (config.params[id] > 1200) {
+                config.params[id] = 1200;
+                this.value = '1200';
+            }
             renderImage();
         }
     }
