@@ -79,11 +79,11 @@ $(function () {
 
     for (dom of paramInputs) {
         var id = dom.id.replace('param_', '');
-        config.params[id] = Math.floor(Number(dom.value));
+        config.params[id] = Math.floor(Number(dom.value.replace('e', '')));
         // イベントハンドラ設定
         dom.onchange = function () {
             var id = this.id.replace('param_', '');
-            config.params[id] = Math.floor(Number(this.value));
+            config.params[id] = Math.floor(Number(this.value.replace('e', '')));
             if (config.params[id] < 0) {
                 config.params[id] = 0;
                 this.value = '0';
