@@ -67,7 +67,6 @@ $(function () {
     paramInputs = document.querySelectorAll('.paraminput');
 
     for (dom of tekiseiSelectors) {
-        console.log(dom);
         var id = dom.id.replace('tekisei_', '');
         config.tekisei[id] = dom.value;
         // イベントハンドラ設定
