@@ -29,6 +29,7 @@ var config = {
 var imageAssets = {
     base: canvasImage('assets/image/base2.png'),
     icon: canvasImage('assets/image/icon_default.png'),
+    tekisei_SS_PLUS: canvasImage('assets/image/grades/uma_tekisei_SS_PLUS.png'),
     tekisei_SS: canvasImage('assets/image/grades/uma_tekisei_SS.png'),
     tekisei_S_PLUS: canvasImage('assets/image/grades/uma_tekisei_S_PLUS.png'),
     tekisei_S: canvasImage('assets/image/grades/uma_tekisei_S.png'),
