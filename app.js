@@ -185,7 +185,7 @@ function renderImage2() {
     drawParam(ctx, config.params.kasikosa, 960, 406);
 
     // 適性描画
-    drawTekisei(ctx, config.tekisei.siba, 340, 456);
+    drawTekisei(ctx, config.tekisei.siba, 360, 456);
     drawTekisei(ctx, config.tekisei.dart, 560, 456);
 
     drawTekisei(ctx, config.tekisei.sprint, 360, 516);
@@ -258,7 +258,9 @@ function getGradeFromValue(stat) {
         return 'S';
     }else if ( stat >= 1050 && stat <= 1099) {
         return 'S_PLUS';
-    }else if ( stat >= 1100) {
+    }else if ( stat >= 1100 && stat <= 1149) {
         return 'SS';
+    }else if ( stat >= 1150) {
+        return 'SS_PLUS';
     }
 }
