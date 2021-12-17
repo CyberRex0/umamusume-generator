@@ -21,6 +21,7 @@ var config = {
         konjou: 100,
         kasikosa: 100
     },
+    chara_rank: 'A',
     tag: 'ここに称号を入力',
     name: 'ここに名前を入力',
     catchcopy: 'キャッチコピー'
@@ -29,6 +30,7 @@ var config = {
 var imageAssets = {
     base: canvasImage('assets/image/base2.png'),
     icon: canvasImage('assets/image/icon_default.png'),
+
     tekisei_SS_PLUS: canvasImage('assets/image/grades/uma_tekisei_SS_PLUS.png'),
     tekisei_SS: canvasImage('assets/image/grades/uma_tekisei_SS.png'),
     tekisei_S_PLUS: canvasImage('assets/image/grades/uma_tekisei_S_PLUS.png'),
@@ -46,7 +48,26 @@ var imageAssets = {
     tekisei_F_PLUS: canvasImage('assets/image/grades/uma_tekisei_F_PLUS.png'),
     tekisei_F: canvasImage('assets/image/grades/uma_tekisei_F.png'),
     tekisei_G_PLUS: canvasImage('assets/image/grades/uma_tekisei_G_PLUS.png'),
-    tekisei_G: canvasImage('assets/image/grades/uma_tekisei_G.png')
+    tekisei_G: canvasImage('assets/image/grades/uma_tekisei_G.png'),
+
+    chara_rank_SS_PLUS: canvasImage('assets/image/chara_grades/chara_rank_SS_PLUS.png'),
+    chara_rank_SS: canvasImage('assets/image/chara_grades/chara_rank_SS.png'),
+    chara_rank_S_PLUS: canvasImage('assets/image/chara_grades/chara_rank_S_PLUS.png'),
+    chara_rank_S: canvasImage('assets/image/chara_grades/chara_rank_S.png'),
+    chara_rank_A_PLUS: canvasImage('assets/image/chara_grades/chara_rank_A_PLUS.png'),
+    chara_rank_A: canvasImage('assets/image/chara_grades/chara_rank_A.png'),
+    chara_rank_B_PLUS: canvasImage('assets/image/chara_grades/chara_rank_B_PLUS.png'),
+    chara_rank_B: canvasImage('assets/image/chara_grades/chara_rank_B.png'),
+    chara_rank_C_PLUS: canvasImage('assets/image/chara_grades/chara_rank_C_PLUS.png'),
+    chara_rank_C: canvasImage('assets/image/chara_grades/chara_rank_C.png'),
+    chara_rank_D_PLUS: canvasImage('assets/image/chara_grades/chara_rank_D_PLUS.png'),
+    chara_rank_D: canvasImage('assets/image/chara_grades/chara_rank_D.png'),
+    chara_rank_E_PLUS: canvasImage('assets/image/chara_grades/chara_rank_E_PLUS.png'),
+    chara_rank_E: canvasImage('assets/image/chara_grades/chara_rank_E.png'),
+    chara_rank_F_PLUS: canvasImage('assets/image/chara_grades/chara_rank_F_PLUS.png'),
+    chara_rank_F: canvasImage('assets/image/chara_grades/chara_rank_F.png'),
+    chara_rank_G_PLUS: canvasImage('assets/image/chara_grades/chara_rank_G_PLUS.png'),
+    chara_rank_G: canvasImage('assets/image/chara_grades/chara_rank_G.png')
 }
 
 var tekiseiSelectors;
@@ -95,6 +116,13 @@ $(function () {
             }
             renderImage();
         }
+    }
+
+    // キャラクターランク
+    var chara_rank_select = document.getElementById('chara_rank');
+    chara_rank_select.onchange = function () {
+        config.chara_rank = this.value;
+        renderImage();
     }
 
     // ファイル選択ハンドラ設定
@@ -177,7 +205,12 @@ function renderImage2() {
 
 
     ctx.font = '40px Umago';
-    ctx.fillStyle = '#794016';
+    var grad = ctx.createLinearGradient(0, 356, 0, 446);
+    grad.addColorStop(0.2, 'rgb(255,120,10)');
+    grad.addColorStop(0.35, 'rgb(180,85,7)');
+    grad.addColorStop(0.50, 'rgb(154,72,5)');
+    ctx.fillStyle = grad;
+
     // パラメータ描画
     drawParam(ctx, config.params.speed, 160, 406);
     drawParam(ctx, config.params.stamina, 360, 406);
@@ -198,6 +231,9 @@ function renderImage2() {
     drawTekisei(ctx, config.tekisei.senkou, 560, 576);
     drawTekisei(ctx, config.tekisei.sasi, 760, 576);
     drawTekisei(ctx, config.tekisei.oikomi, 960, 576);
+
+    // キャラクターランク描画
+    drawCharacterRank(ctx, config.chara_rank, 370, 30);
 }
 
 function canvasImage(path) {
@@ -217,12 +253,17 @@ function download() {
 function drawParam(ctx, v, x, y) {
     var i = imageAssets['tekisei_'+getGradeFromValue(v)];
     ctx.fillText(v, x, y);
-    ctx.drawImage(i, x - 110, y - 50, 64, 64);
+    ctx.drawImage(i, x - 100, y - 45, 60, 56);
 }
 
 function drawTekisei(ctx, v, x, y) {
     var i = imageAssets['tekisei_'+v];
-    ctx.drawImage(i, x, y, 40, 40);
+    ctx.drawImage(i, x, y, 44, 40);
+}
+
+function drawCharacterRank(ctx, v, x, y) {
+    var i = imageAssets['chara_rank_'+v];
+    ctx.drawImage(i, x, y, 96, 96);
 }
 
 function getGradeFromValue(stat) {
