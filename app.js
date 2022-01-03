@@ -31,6 +31,7 @@ var imageAssets = {
     base: canvasImage('assets/image/base2.png'),
     icon: canvasImage('assets/image/icon_default.png'),
 
+    tekisei_UG: canvasImage('assets/image/grades/uma_tekisei_UG.png'),
     tekisei_SS_PLUS: canvasImage('assets/image/grades/uma_tekisei_SS_PLUS.png'),
     tekisei_SS: canvasImage('assets/image/grades/uma_tekisei_SS.png'),
     tekisei_S_PLUS: canvasImage('assets/image/grades/uma_tekisei_S_PLUS.png'),
@@ -50,6 +51,7 @@ var imageAssets = {
     tekisei_G_PLUS: canvasImage('assets/image/grades/uma_tekisei_G_PLUS.png'),
     tekisei_G: canvasImage('assets/image/grades/uma_tekisei_G.png'),
 
+    chara_rank_UG: canvasImage('assets/image/chara_grades/chara_rank_UG.png'),
     chara_rank_SS_PLUS: canvasImage('assets/image/chara_grades/chara_rank_SS_PLUS.png'),
     chara_rank_SS: canvasImage('assets/image/chara_grades/chara_rank_SS.png'),
     chara_rank_S_PLUS: canvasImage('assets/image/chara_grades/chara_rank_S_PLUS.png'),
