@@ -1,5 +1,7 @@
 // Umamusume Generator
-// (C)2021 CyberRex
+// (C)2021-2022 CyberRex
+
+var STATUS_INT_MAX = 1600;
 
 var config = {
     tekisei: {
@@ -103,6 +105,7 @@ $(function () {
 
     for (dom of paramInputs) {
         var id = dom.id.replace('param_', '');
+        dom.max = STATUS_INT_MAX;
         config.params[id] = Math.floor(Number(dom.value.replace('e', '')));
         // イベントハンドラ設定
         dom.onchange = function () {
@@ -112,9 +115,14 @@ $(function () {
                 config.params[id] = 0;
                 this.value = '0';
             }
+            if (config.params[id] > STATUS_INT_MAX) {
+                config.params[id] = STATUS_INT_MAX;
+                this.value = String(STATUS_INT_MAX);
+            }
             if (config.params[id] > 1200) {
-                config.params[id] = 1200;
-                this.value = '1200';
+                $('#param_warning').show();
+            }else{
+                $('#param_warning').hide();
             }
             renderImage();
         }
