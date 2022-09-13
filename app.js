@@ -1,6 +1,8 @@
 // Umamusume Generator
 // (C)2021-2022 CyberRex
 
+var APP_VER = "1.5";
+
 var STATUS_INT_MAX = 1600;
 
 var config = {
@@ -30,7 +32,7 @@ var config = {
 }
 
 var imageAssets = {
-    base: canvasImage('assets/image/base2.png'),
+    base: canvasImage('assets/image/base3.png'),
     icon: canvasImage('assets/image/icon_default.png'),
 
     tekisei_UG: canvasImage('assets/image/grades/uma_tekisei_UG.png'),
@@ -84,6 +86,8 @@ var oldCatchcopy, oldName, oldTag;
 $(function () {
 
     // init
+
+    document.getElementById('app-ver').innerText = APP_VER;
 
     canvas = document.getElementById('surface');
     filePicker = document.getElementById('icon');
@@ -184,19 +188,20 @@ function renderImage() {
     
     if (!imageAssets.base.complete) {
         setTimeout(() => {
-            ctx.fillRect(140, 60, 210, 210);
-            ctx.drawImage(imageAssets.icon, 140, 55, 210, 210);
-            ctx.drawImage(imageAssets.base, 0, 0);
-            renderImage2();
+            drawIcon(ctx);
         }, 1000);
     }else{
-        ctx.fillRect(140, 60, 210, 210);
-        ctx.drawImage(imageAssets.icon, 140, 55, 210, 210);
-        ctx.drawImage(imageAssets.base, 0, 0);
-        renderImage2();
+        drawIcon(ctx);
     }
 
     
+}
+
+function drawIcon(ctx) {
+    ctx.fillRect(140, 60, 210, 210);
+    ctx.drawImage(imageAssets.icon, 138, 55, 210, 210);
+    ctx.drawImage(imageAssets.base, 0, 0);
+    renderImage2();
 }
 
 function renderImage2() {
